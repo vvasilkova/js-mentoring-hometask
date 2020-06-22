@@ -14,30 +14,20 @@ function calculateDiscount(redemption) {
   let discount;
 
   //PLACE YOUR CODE HERE
-  for (let redemption = 0; redemption <= 350; redemption++) {
-    discount = (redemption * 0 / 100);
+  if (redemption >= 0 && redemption <= 350) {
+    discount = 0;
+  } else if (redemption >= 351 && redemption <= 1350) {
+    discount = 15;
+  } else if (redemption >= 1351 && redemption <= 2700) {
+    discount = 30;
+  } else if (redemption >= 2701 && redemption <= 6500) {
+    discount = 45;
+  } else if (redemption >= 6501 && redemption <= 9999) {
+    discount = 60;
   }
-  //console.log('max amount of discount' , discount);
-  for (let redemption = 351; redemption <= 1350; redemption++) {
-    discount = (redemption * 15 / 100);
-  }
-  //console.log('max amount of discount' , discount);
-  for (let redemption = 1351; redemption <= 2700; redemption++) {
-    discount = (redemption * 30 / 100);
-  }
-  // console.log('max amount of discount' , discount);
-  for (let redemption = 2701; redemption <= 6500; redemption++) {
-    discount = (redemption * 45 / 100);
-  }
-  // console.log('max amount of discount' , discount);
-  for (let redemption = 6501; redemption <= 9999; redemption++) {
-    discount = (redemption * 60 / 100);
-  }
-  // console.log('max amount of discount' , discount);
 
   return discount;
 }
-
 /** TODO
  * implement factorial algorithm using for, while, do..while operators
  */
@@ -48,23 +38,25 @@ function calculateDiscount(redemption) {
 {
   const i = 10;
   let m = i;
-  let z = 1;
-  while (m--) {
-    z *= m + 1;
+  let fact = 1;
+  while (m > 0) {
+    fact *= m;
+    m--;
   }
-  console.log('10!=', z);
+  console.log('10!=', fact);
 }
 
 // TaskDone Do..while
 {
   const i = 10;
   let m = i;
-  let z = 1;
+  let fact = 1;
   do {
-    z *= m + 1;
+    fact *= m;
+    m--;
   }
-  while (m--);
-  console.log('10!=', z);
+  while (m > 0);
+  console.log('10!=', fact);
 }
 
 // TaskDone For
@@ -72,17 +64,17 @@ function calculateDiscount(redemption) {
 {
   const i = 10;
   let m = i;
-  let z = 1;
-  for (let m = 10; m > 0; m--) {
-    z *= m + 1;
+  let fact = 1;
+  for (m; m > 0; m--) {
+    fact *= m;
   }
-  console.log('10!=', z);
+  console.log('10!=', fact);
 }
 
 /**
  * return concatenated string from an array of substring
  */
-/{
+{
 const substr = ["I", " love", " JS"];
 }
 //Variant1:
@@ -109,7 +101,7 @@ const substr = ["I", " love", " JS"];
   var txt = "";
   for (let i of substr) {
     txt += i + " ";
-  };
+  }
 }
 /**
  * calculate a total of income of certain person
@@ -128,5 +120,6 @@ const substr = ["I", " love", " JS"];
   }
   console.log('totalIncome = ', totalIncome);
 }
+
 
 module.exports = calculateDiscount;
