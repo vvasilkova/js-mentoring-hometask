@@ -14,7 +14,7 @@ function calculateDiscount(redemption) {
   let discount;
 
   //PLACE YOUR CODE HERE
-  if (redemption >= 0 && redemption <= 350) {
+   if (redemption >= 0 && redemption <= 350) {
     discount = 0;
   } else if (redemption >= 351 && redemption <= 1350) {
     discount = 15;
@@ -22,10 +22,9 @@ function calculateDiscount(redemption) {
     discount = 30;
   } else if (redemption >= 2701 && redemption <= 6500) {
     discount = 45;
-  } else if (redemption >= 6501 && redemption <= 9999) {
-    discount = 60;
+  } else {
+    discount = 0;
   }
-
   return discount;
 }
 /** TODO
@@ -114,8 +113,7 @@ const substr = ["I", " love", " JS"];
     otherExpences: -300
   };
   var totalIncome = 0;
-  var x;
-  for (x in personIncomes) {
+    for (let x in personIncomes) {
     totalIncome += personIncomes[x];
   }
   console.log('totalIncome = ', totalIncome);

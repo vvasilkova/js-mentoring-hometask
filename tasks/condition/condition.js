@@ -36,9 +36,9 @@
   const y = 7;
 
   let z;
-  if ((x < 10) && (y < 10)) {
+  if (x < 10 && y < 10) {
     console.log('z =', x + y);
-  } else if ((x >= 10) && (y >= 10)) {
+  } else if (x >= 10 && y >= 10) {
     console.log('z =', x * y);
   } else {
     console.log('No results');
@@ -49,10 +49,8 @@
   const x = 3;
   const y = 7;
 
-  let z;
-  ((x < 10) && (y < 10)) ? console.log('z =', x + y):
-    ((x >= 10) && (y >= 10)) ? console.log('z =', x * y) :
-    console.log('No results');
+  let z = (x < 10 && y < 10) ? x + y: x * y;
+    console.log(z);
 }
 /** TODO
  * The system receives 3 params - x, y, operator.
