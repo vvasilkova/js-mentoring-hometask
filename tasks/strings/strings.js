@@ -4,15 +4,21 @@
  * @param {string} str
  */
 function reverseString(str) {
+  if (typeof str != 'string') {
+    return 'This is not a string!';
+  } else {
+    return str.reverse();
+  }
 }
+
 
 /**
  * 1. Calculate a century by given year
  * if a number is passed
-* @param {number} year
-*/
+ * @param {number} year
+ */
 function centuryFromYear(year) {
-
+  return Math.ceil(year / 100);
 }
 
 /**
@@ -20,7 +26,14 @@ function centuryFromYear(year) {
  * @param {string} str
  * @param {string} char
  */
-function strCount(str, char) {
+function strCount(str, char) {
+  let reg = /char/gi;
+  let matches = str.match(/char/gi);
+  if (!matches) {
+    return 0;
+  } else {
+    return matches.length;
+  }
 }
 
 /**
@@ -29,7 +42,12 @@ function strCount(str, char) {
  * @param {string} str - the initial string
  * @param {num} num - by wht amount of chars it should be truncated
  */
-function truncateString(str, num) {
+function truncateString(str, num) {
+  if (str.length > num) {
+    return str.slice(0, num) + '...';
+  } else {
+    return str;
+  }
 }
 
 /**
@@ -40,7 +58,9 @@ function truncateString(str, num) {
  * console.log(replace10("231054")) // 23ten54
  */
 function replace10(text) {
-
+  let regChange = /10/g;
+  let result = text.replace(regChange, 'ten');
+  return result;
 }
 
 /**
@@ -51,7 +71,9 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-
+  let regular = /ipsum/gi;
+  let result = text.replace(regular, 'CONFIDENTIAL');
+  return result;
 }
 
 module.exports = {
