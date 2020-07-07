@@ -4,9 +4,7 @@
  * @return {Array} - char names
  */
 function getCharactersNames(chars) {
-    return chars.map(function (char) {
-        return char.name;
-    });
+    return chars.map(char => char.name);
 }
 
 /**
@@ -23,11 +21,8 @@ function printCharacterNames(chars) {
  * @return {Array} - non human characters
  */
 function getNonHumanCharacters(chars) {
-    let nonHumanCharacters = chars.filter(function (char) {
-        return char.species !== 'Human';
-    });
-    return nonHumanCharacters;
-}
+    return chars.filter(char => char.species !== 'Human');
+    }
 
 /**
  * return info about character named 'Jerry Smith'
@@ -35,11 +30,8 @@ function getNonHumanCharacters(chars) {
  * @return {Object} - Jerry object
  */
 function getJerryInfo(chars) {
-    let jerryInfo = chars.find(function (char) {
-        return char.name === 'Jerry Smith';
-    });
-    return jerryInfo;
-}
+    return chars.find(char => char.name === 'Jerry Smith');
+    }
 
 /**
  * check if all characters are human. return true if all, false if not

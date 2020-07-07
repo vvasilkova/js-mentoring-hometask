@@ -7,7 +7,7 @@ function reverseString(str) {
   if (typeof str != 'string') {
     return 'This is not a string!';
   } else {
-    return str.reverse();
+    return str.split('').reverse().join('');
   }
 }
 
@@ -27,12 +27,11 @@ function centuryFromYear(year) {
  * @param {string} char
  */
 function strCount(str, char) {
-  let reg = /char/gi;
-  let matches = str.match(/char/gi);
-  if (!matches) {
+  let regex = new RegExp(char, 'g');
+  if (str.match(regex) == null) {
     return 0;
   } else {
-    return matches.length;
+    return str.match(regex).length;
   }
 }
 
@@ -71,9 +70,10 @@ function replace10(text) {
  * console.log(replaceConfidential("lorem [ipsum] si dolor")) // lorem [CONFIDENTIAL] si dolor
  */
 function replaceConfidential(text) {
-  let regular = /ipsum/gi;
-  let result = text.replace(regular, 'CONFIDENTIAL');
-  return result;
+  let re = /([\[(])(.+?)([\])])/gi;
+  let newstr = text.replace(re, '[CONFIDENTIAL]');
+  console.log(newstr);
+  return newstr;
 }
 
 module.exports = {
