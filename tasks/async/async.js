@@ -12,7 +12,7 @@ function printDataCallback() {
     function printText(str, data) {
         console.log(data);
     }
-    callbackFunction(printTesxt);
+    callbackFunction(printText);
 }
 
 /**
@@ -20,9 +20,7 @@ function printDataCallback() {
  */
 function printDataPromise() {
     promiseFunction()
-        .then(data => {
-            console.log(data);
-        });
+        .then(data =>console.log(data));
 }
 
 /**
@@ -38,7 +36,7 @@ const data = await promiseFunction();
  */
 function handleErrorCallback() {
     function throwErr(err) {
-    throw new Error ('oops');
+    throw err;
   }
   callbackFunctionError(throwErr);
   }
@@ -47,19 +45,18 @@ function handleErrorCallback() {
  * throw error come from promiseFunctionError
  */
 function handlePromiseError() {
-    try{
-        const result = await promiseFunctionError();
-        } catch(e){
-            console.log(e);
-        } 
+    promiseFunctionError.catch(err => console.log(err));
     }
     
 /**
  * throw error come from promiseFunctionError using async/await
  */
 async function handleAsyncAwaitError() {
-    const data = await promiseFunctionError();
-console.log(data);
+    try{
+        const result = await promiseFunctionError();
+        } catch(e){
+            console.log(e);
+        } 
 }
 
 module.exports = {
